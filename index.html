@@ -76,14 +76,16 @@
 
                 <div id="edit-post" class="row">
                     <form>
-                        <textarea name="content" placeholder="What are you thinking man?"></textarea>
-                        <select name="emotion">
+                        <textarea name="content" placeholder="What are you thinking man?" required></textarea>
+                        <select name="emotion" required>
+                            <option value="">How do you feel?</option>
                             <option value="happy">Happy</option>
                             <option value="angry">Angry</option>
                             <option value="sad">Sad</option>
                             <option value="scaried">Scaried</option>
                         </select>
                         <input type="submit" name="publish" value="Publish">
+                        <p class="error"></p>
                     </form>
                 </div>
 

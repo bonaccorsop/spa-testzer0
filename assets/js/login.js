@@ -14,17 +14,6 @@ var logoutProcedure = function() {
     window.location.reload();
 };
 
-var lockButtonProcedure = function($button) {
-    $button.attr('disabled', 'disabled');
-    $button.data('previousText', $button.val());
-    $button.val('Loading');
-};
-
-var unlockButtonProcedure = function($button) {
-    $button.removeAttr('disabled');
-    $button.val($button.data('previousText'));
-};
-
 $(function() {
 
     $('#login-modal a.register').click(function(e) {

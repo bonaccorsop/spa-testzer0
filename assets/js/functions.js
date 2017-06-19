@@ -44,6 +44,19 @@ function htmlDecode(input) {
 
 // ------------------------------------------------------
 
+var lockButtonProcedure = function($button) {
+    $button.attr('disabled', 'disabled');
+    $button.data('previousText', $button.val());
+    $button.val('Loading');
+};
+
+var unlockButtonProcedure = function($button) {
+    $button.removeAttr('disabled');
+    $button.val($button.data('previousText'));
+};
+
+// ------------------------------------------------------
+
 var xhrTemplate = function(dataToExtend) {
     return _.extend({
         headers: {token: getAuthToken()},

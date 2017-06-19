@@ -101,7 +101,7 @@
   display: none;
 }
 
-input.login.loginmodal-submit:disabled {
+input[type="submit"]:disabled {
     background-color: #aaa;
 }
 
