@@ -1,0 +1,9 @@
+
+#preloader img {
+    margin: 100px auto;
+    display: block;
+}
+
+#app-container {
+    display: none;
+}

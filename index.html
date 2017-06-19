@@ -1,0 +1,90 @@
+<html>
+    <header>
+        <title>Test0 App</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" type="text/css" href="assets/css/login-modal.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </header>
+    <body>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" keyboard="false" backdrop="static" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+
+                <div id="login-container" class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+
+                    </form>
+
+                    <div class="error"></div>
+
+                    <div class="login-help">
+                        <a class="register" href="#">I don't have an account yet</a>
+                    </div>
+                </div>
+
+                <div id="signup-container" class="loginmodal-container">
+                    <h1>Signup now!</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="password" name="retype-pass" placeholder="Retype Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Register now">
+                    </form>
+
+                    <div class="error"></div>
+
+                    <div class="login-help">
+                        <a class="login" href="#">I have already an account</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="preloader">
+            <img src="assets/img/spinner.gif">
+        </div>
+
+        <div id="app-container">
+
+            <!-- NAVIGATION HEADER -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Test0 App</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a>Hello <span class="ph-username">User</span>!</a></li>
+                        <li><a id="logout" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <div id="body">
+
+            </div>
+
+
+        </div>
+
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/cookie.js"></script>
+
+        <script type="text/javascript" src="env.js"></script>
+        <script type="text/javascript" src="assets/js/boot.js"></script>
+        <script type="text/javascript" src="assets/js/functions.js"></script>
+        <script type="text/javascript" src="assets/js/login.js"></script>
+    </body>
+</html>

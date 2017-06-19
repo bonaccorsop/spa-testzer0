@@ -1,0 +1,16 @@
+version: '2'
+services:
+    app:
+        image: mosaicoon/nginx-spa:latest
+        ports:
+            - "8054:80"
+
+        working_dir: /app/code
+
+        environment:
+            APP_CWD:  "/app/code"
+            VHOST_ROOT:  "/app/code"
+            APP_ENV: dev
+
+        volumes:
+            - ./:/app/code
