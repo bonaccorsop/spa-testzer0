@@ -7,3 +7,58 @@
 #app-container {
     display: none;
 }
+
+
+
+div#edit-post {
+    padding-bottom: 30px;
+}
+
+#edit-post textarea {
+    padding: 15px;
+    border: 2px solid #ddd;
+    resize: none;
+    width: 100%;
+    font-size: 14px;
+    min-height: 120px;
+}
+
+#edit-post input[type="submit"] {
+    margin-top: 15px;
+    float: right;
+    width: 100px;
+    height: 35px;
+    background-color: green;
+    color: #fff;
+    border: none;
+}
+
+#edit-post select {
+    float: left;
+    margin-top: 15px;
+    width: 160px;
+    height: 30px;
+}
+
+
+div#post-list {
+    margin-top: 25px;
+}
+
+.media.post-item {
+    border-top: 1px solid #dedede;
+    padding-top: 23px;
+}
+
+.post-item .media-left a {
+    font-size: 37px;
+    border-radius: 210em;
+}
+
+.tpl {
+    display: none
+}
+
+
+
+

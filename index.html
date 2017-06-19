@@ -1,6 +1,9 @@
 <html>
     <header>
         <title>Test0 App</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
@@ -69,7 +72,25 @@
             </nav>
 
 
-            <div id="body">
+            <div id="post-area" class="container">
+
+                <div id="edit-post" class="row">
+                    <form>
+                        <textarea name="content" placeholder="What are you thinking man?"></textarea>
+                        <select name="emotion">
+                            <option value="happy">Happy</option>
+                            <option value="angry">Angry</option>
+                            <option value="sad">Sad</option>
+                            <option value="scaried">Scaried</option>
+                        </select>
+                        <input type="submit" name="publish" value="Publish">
+                    </form>
+                </div>
+
+                <div id="post-list" class="row">
+
+                </div>
+
 
             </div>
 
@@ -78,13 +99,18 @@
 
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.core.min.js"></script>
+        <script type="text/javascript" src="assets/js/lodash.js"></script>
         <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/cookie.js"></script>
+        <script type="text/javascript" src="assets/js/moment.js"></script>
 
         <script type="text/javascript" src="env.js"></script>
         <script type="text/javascript" src="assets/js/boot.js"></script>
         <script type="text/javascript" src="assets/js/functions.js"></script>
+        <script type="text/javascript" src="assets/js/posts.js"></script>
         <script type="text/javascript" src="assets/js/login.js"></script>
+
+
+
     </body>
 </html>

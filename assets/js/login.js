@@ -5,6 +5,7 @@ var authProcedure = function() {
         $('#app-container').fadeIn(400);
 
         $('.ph-username').text(getUserData('email'));
+        loadPostsProcedure();
     });
 };
 
