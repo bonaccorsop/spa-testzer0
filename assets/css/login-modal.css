@@ -101,7 +101,7 @@
   display: none;
 }
 
-input[type="submit"]:disabled {
+input[type="submit"]:disabled, #load-more:disabled {
     background-color: #aaa;
 }
 

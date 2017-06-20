@@ -72,5 +72,15 @@ div#post-list {
 }
 
 
+input#load-more {
+    margin: 40px auto;
+    display: block;
+    width: 170px;
+    padding: 10px;
+    background-color: green;
+    border: none;
+    color: #fff;
+}
+
 
 

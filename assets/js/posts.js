@@ -1,6 +1,7 @@
 window.posts = {
-    currentPage: 1,
-    pagelen: 15
+    nextPage: 1,
+    pagelen: 15,
+    exclude: []
 };
 
 var postTpl = _.template('\
@@ -23,9 +24,6 @@ var postTpl = _.template('\
 var $postContainer = $('#post-list');
 
 var postModel = function(postData) {
-
-    //console.log(postData.rate, (! _.isEmpty(postData.rate)) ? postData.rate : 0);
-
     return {
         id: postData.id,
         date: moment(postData.created_at).fromNow(),
@@ -59,17 +57,48 @@ var renderPostItem = function(postModel) {
 
 var loadPostsProcedure = function() {
 
-    return xhrListPosts(window.posts.currentPage, window.posts.pagelen).done(function(data) {
+    $loadButton = $('#load-more');
 
-        _.each(_.map(data.data, postModel), function(postModel) {
-            $postContainer.append(renderPostItem(postModel));
-        });
+    lockButtonProcedure($loadButton);
+
+    return xhrListPosts(window.posts.nextPage, window.posts.pagelen, window.posts.exclude).done(function(data) {
+
+        if(! _.isEmpty(data.data)) {
+
+            _.each(_.map(data.data, postModel), function(postModel) {
+                $postContainer.append(renderPostItem(postModel));
+            });
+
+            window.posts.nextPage++;
+            unlockButtonProcedure($loadButton);
+
+        } else {
+            $loadButton.val('NO MORE POSTS!');
+            $loadButton.unbind('click');
+            $loadButton.hide(2000);
+        }
+
 
     });
 };
 
 
 $(function() {
+
+    $('#load-more').click(function(e) {
+        e.preventDefault();
+        loadPostsProcedure();
+    });
+
+    $(window).scroll(function() {
+
+        $loadButton = $('#load-more');
+
+        if($loadButton.is(':visible') && $(window).scrollTop() > $(document).height() - 800) {
+            $loadButton.trigger('click');
+        }
+    });
+
     $('#edit-post form').submit(function(e) {
         e.preventDefault();
 
@@ -83,7 +112,6 @@ $(function() {
         $errorBox.text('');
         lockButtonProcedure($button);
 
-
         xhrCreatePost({
             content: content,
             emotion: emotion
@@ -92,6 +120,7 @@ $(function() {
             var $postItem = renderPostItem(postModel(data.data));
             $postContainer.prepend($postItem);
             $form.find('textarea, select, input').val('');
+            window.posts.exclude.push(data.data.id);
         })
         .fail(function(resp) {
 

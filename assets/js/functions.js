@@ -96,13 +96,13 @@ function xhrUserInfo() {
     }));
 }
 
-function xhrListPosts(page, pagelen) {
-    page = ! _.isEmpty(page) ? page : 1;
-    pagelen = ! _.isEmpty(pagelen) ? pagelen : 15;
+function xhrListPosts(page, pagelen, exclude) {
+
+    var excludeStr = exclude.join(',');
 
     return $.ajax(xhrTemplate({
         type: "GET",
-        url: resolveApiUrl('me/posts?page='+page+'&pagelen='+pagelen)
+        url: resolveApiUrl('me/posts?page='+page+'&pagelen='+pagelen+'&exclude='+excludeStr)
     }));
 }
 
