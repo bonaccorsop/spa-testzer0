@@ -11,24 +11,38 @@ var postTpl = _.template('\
             <p class="lead content"><%= content %></p>\
             <p class="emotion">I was <%= emotion %></p>\
         </div>\
+        <div class="actions">\
+            <div class="rate"></div>\
+        </div>\
     </div>\
 ');
 
 var $postContainer = $('#post-list');
 
 var postModel = function(postData) {
+
+    //console.log(postData.rate, (! _.isEmpty(postData.rate)) ? postData.rate : 0);
+
     return {
         id: postData.id,
         date: moment(postData.created_at).fromNow(),
         content: postData.content,
         emotion: postData.emotion,
+        rate: postData.rate,
         authorLetter: getUserData('email').charAt(0).toUpperCase()
     };
 };
 
 var renderPostItem = function(postModel) {
 
-    var $postItem = postTpl(postModel);
+    var $postItem = $(postTpl(postModel));
+
+    //console.log(postModel.rate);
+
+    $postItem.find('.rate').raty({
+        score: postModel.rate,
+        click: function(rate) {xhrRatePost(postModel.id, rate);}
+    });
 
     return $postItem;
 
@@ -50,6 +64,7 @@ $(function() {
     $('#edit-post form').submit(function(e) {
         e.preventDefault();
 
+        var $form = $(this);
         var $button = $(this).find('input[type="submit"]');
         var $errorBox = $(this).find('.error');
 
@@ -65,9 +80,9 @@ $(function() {
             emotion: emotion
         })
         .done(function(data) {
-
             var $postItem = renderPostItem(postModel(data.data));
             $postContainer.prepend($postItem);
+            $form.find('textarea, select, input').val('');
         })
         .fail(function(resp) {
 

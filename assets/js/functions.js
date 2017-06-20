@@ -136,3 +136,11 @@ function xhrDeletePost(postId) {
     }));
 }
 
+function xhrRatePost(postId, rate) {
+    return $.ajax(xhrTemplate({
+        type: "PATCH",
+        url: resolveApiUrl('me/posts/'+postId+'/rate'),
+        data: JSON.stringify({rate: rate})
+    }));
+}
+
