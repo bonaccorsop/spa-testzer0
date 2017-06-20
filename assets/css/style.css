@@ -59,6 +59,14 @@ div#post-list {
     float: right;
 }
 
+.post-item a.delete {
+    float: right;
+    font-size: 13px;
+    color: #000;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
 .tpl {
     display: none
 }

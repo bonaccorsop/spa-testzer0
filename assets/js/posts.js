@@ -7,7 +7,10 @@ var postTpl = _.template('\
     <div class="media post-item">\
         <div class="media-left"><a href="#"><%= authorLetter %></a></div>\
         <div class="media-body">\
-            <p class="date">Created <%= date %></p>\
+            <p class="head">\
+                <span class="date">Created <%= date %></span>\
+                <a class="delete">Delete this post</a>\
+            </p>\
             <p class="lead content"><%= content %></p>\
             <p class="emotion">I was <%= emotion %></p>\
         </div>\
@@ -42,6 +45,12 @@ var renderPostItem = function(postModel) {
     $postItem.find('.rate').raty({
         score: postModel.rate,
         click: function(rate) {xhrRatePost(postModel.id, rate);}
+    });
+
+    $postItem.find('.delete').click(function(e) {
+        e.preventDefault();
+        xhrDeletePost(postModel.id);
+        $postItem.fadeOut(400);
     });
 
     return $postItem;
